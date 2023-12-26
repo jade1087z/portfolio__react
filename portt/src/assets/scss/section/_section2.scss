@@ -1,0 +1,151 @@
+#section2 {
+    padding: 0 0 200px;
+    position: relative;
+    overflow: hidden;
+    
+    .loop__slide__container {
+      display: flex;
+      width: max-content;
+      overflow: hidden;
+      padding: 100px 0;
+      
+      .loop__slide__group {
+        display: flex;
+        
+        .loop__slide {
+          width: 41.7vw;
+          height: 26vw;
+          margin-right: 30px;
+        }
+        
+        img {
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+  
+  .relativeBox{
+    position: relative;
+    background-color: #ccc;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .text__flex {
+    display: flex;  
+    padding-top: 3%;
+    
+    .left {
+      width: 10%;
+      position: relative;
+    }
+    
+    .right {
+      width: 90%;
+    }
+  }
+  
+  .text-title {
+    p {
+      padding: 0% 5% 0 10%;
+      font-family: "GmarketSans";
+      font-weight: 900;
+      font-size: 4vw;
+      line-height: 1.2;
+      text-align: right;
+    }
+    
+    .svg {
+      svg {
+        animation: arrowAnimation 1.4s infinite;
+        width: 4.5vw;
+        height: 4.5vw;
+      }
+    }
+    
+    .desc2 {
+      a,
+      & {
+        font-family: "IropkeBatang";
+        line-height: 1.6;
+        font-size: 1.13rem;
+        color: #202020;
+        font-weight: normal;
+      }
+      
+      a {
+        position: relative;
+        pointer-events: auto;
+        letter-spacing: 1px;
+        font-family: "Roboto Condensed";
+        font-weight: 400;
+        font-size: 0.9rem;
+        display: inline-block;
+        width: 18rem;
+        text-align: left;
+        color: var(--desc-color);
+        
+        svg {
+          position: absolute;
+          right: 0%;
+          top: 30%;
+          fill: var(--desc-color);
+          
+          path {
+            fill: var(--desc-color);
+          }
+        }
+        
+        &:hover {
+          color: black;
+          
+          svg {
+            path {
+              fill: black
+            }
+          }
+          
+          &::before,
+          &::after {
+            transform: scaleX(0); 
+            transform-origin: right; 
+            transition-delay: 0.1s; 
+          }
+          
+          &::before {
+            transition-delay: 0s;
+          }
+        }
+        
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          background-color: #000;
+          height: 1px;
+          width: 100%;
+          left: 0;
+          right: 0;
+          top: 103%;
+          transform: scaleX(1); 
+          transform-origin: left; 
+          transition: transform 0.55s cubic-bezier(0.785, 0.135, 0.15, 0.86); 
+        }
+      }
+      
+      i {
+        font-style: normal;
+        text-decoration: underline;
+        text-underline-position: under;
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+    
+    .right {
+      .first {
+        padding-top: 3%;
+      }
+    }
+  }

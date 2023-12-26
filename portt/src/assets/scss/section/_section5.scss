@@ -1,0 +1,168 @@
+$desc-color: #202020;
+$font-Roboto: 'Roboto', sans-serif;
+$font-iro: 'Iro', serif;
+
+#section5 {
+  padding: 150px 0;
+
+  .profile__inner {
+    padding: 0 50px;
+
+    .profile__wrap {
+      position: relative;
+    }
+
+    .img {
+      position: absolute;
+      left: 0.6vw;
+      top: 0.2vw;
+
+      img {
+        border-radius: 10px;
+        width: 12vw;
+        height: 7.4vw;
+      }
+    }
+
+    .profile__title {
+      h4 {
+        font-size: 9vw;
+        line-height: 105%;
+        letter-spacing: 5px;
+        font-weight: 900;
+      }
+    }
+
+    .profile__flex {
+      display: flex;
+
+      .profile__left {
+        width: 40%;
+        height: calc(100% - 2px);
+      }
+
+      .profile__img {
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
+        border-radius: 10px;
+      }
+
+      .profile__right {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .profile {
+          display: flex;
+
+          p {
+            
+          }
+        }
+
+        .profile__num {
+          width: 14%;
+          font-size: 1.1vw;
+          font-family: var(--font-Roboto);
+          font-weight: bold;
+          line-height: 1.3;
+        }
+
+        .profile__text {
+          width: 86%;
+
+          .profile__subTit {
+            font-size: 1vw;
+            font-family: var(--font-Roboto);
+            font-weight: bold;
+            margin-bottom: 3%;
+          }
+
+          .profile__subDe {
+            color: $desc-color;
+            font-family: var(--font-iro);
+            font-size: 0.8vw;
+            width: 80%;
+            line-height: 1.9;
+          }
+        }
+
+        .profile__more {
+          width: 100%;
+          padding: 0% 15% 0% 15%;
+
+          a {
+            display: flex;
+            position: relative;
+            pointer-events: auto;
+            width: 20vw;
+
+            p {
+              line-height: 1.6;
+              font-size: 0.75vw;
+              color: $desc-color;
+              font-weight: normal;
+              letter-spacing: 1px;
+              font-family: var(--font-Roboto);
+              font-weight: 400;
+              color: $desc-color;
+            }
+
+            svg {
+              position: absolute;
+              right: 0.5%;
+              bottom: 4%;
+              width: 1.5vw;
+              height: 1vw;
+              fill: var(--desc-color);
+
+              path {
+                fill: var(--desc-color);
+              }
+            }
+
+            &::before,
+            &::after {
+              content: "";
+              position: absolute;
+              background-color: var(--desc-color);
+              height: 1px;
+              width: 100%;
+              left: 0;
+              right: 0;
+              top: 103%;
+              transform: scaleX(1);
+              transform-origin: left;
+              transition: transform 0.55s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+            }
+
+            &:hover {
+              p,
+              svg path {
+                color: black;
+                fill: black;
+              }
+
+              &::before {
+                transform: scaleX(0);
+                transform-origin: right;
+                transition-delay: 0s;
+              }
+
+              &::after {
+                transform: scaleX(0);
+                transform-origin: right;
+                transition-delay: 0.1s;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+
+}

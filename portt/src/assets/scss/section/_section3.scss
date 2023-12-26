@@ -1,0 +1,97 @@
+@import "../setting/animation";
+#section3 {
+  padding: 150px 0px 50px 50px !important;
+  border-top: 1px solid var(--line-color);
+
+  .work__inner .work__wrap {
+    .work__title {
+      position: relative;
+    }
+  }
+
+  .sec3__text {
+    font-family: "GmarketSans";
+    text-align: left;
+    font-size: 9vw;
+    line-height: 105%;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-weight: 900;
+    position: relative;
+
+    .img {
+      width: 12vw;
+      height: 7.4vw;
+      position: absolute;
+      left: 0.6vw;
+      top: 0.2vw;
+
+      > div img {
+        border-radius: 10px;
+        width: 12vw;
+        height: 7.4vw;
+      }
+    }
+  }
+
+  .right {
+    .desc2 {
+      padding: 3% 4.3% 0 10%;
+      text-align: right;
+      font-family: "IropkeBatang";
+      line-height: 1.6;
+      font-size: 1.13rem;
+      color: #202020;
+      font-weight: normal;
+
+      a {
+        position: relative;
+        pointer-events: auto;
+        letter-spacing: 2px;
+        font-family: "Roboto Condensed";
+        font-weight: 400;
+        font-size: 1rem;
+        width: 10.5rem;
+        padding: 0;
+        color: var(--desc-color);
+
+        svg {
+          position: absolute;
+          right: 0%;
+          top: 30%;
+          fill: var(--desc-color);
+        }
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          background-color: #000;
+          height: 1px;
+          width: 100%;
+          left: 0;
+          top: 120%;
+          transform: scaleX(1);
+          transform-origin: left;
+          transition: transform 0.55s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        }
+
+        &:hover {
+          color: black;
+
+          &::before {
+            transform: scaleX(0);
+            transform-origin: right;
+            transition-delay: 0s;
+          }
+
+          &::after {
+            transform: scaleX(0);
+            transform-origin: right;
+            transition-delay: 0.1s;
+          }
+        }
+      }
+    }
+  }
+}
