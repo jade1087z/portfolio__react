@@ -2,150 +2,258 @@
     padding: 0 0 200px;
     position: relative;
     overflow: hidden;
-    
+  
     .loop__slide__container {
       display: flex;
       width: max-content;
       overflow: hidden;
       padding: 100px 0;
-      
+  
       .loop__slide__group {
         display: flex;
-        
-        .loop__slide {
-          width: 41.7vw;
-          height: 26vw;
-          margin-right: 30px;
+      }
+  
+      .loop__slide {
+        width: 41.7vw;
+        height: 26vw;
+        margin-right: 30px;
+        background-size: cover;
+        background-position: center center;
+        border-radius: 10px;
+  
+        &:nth-child(1) {
+          background-image: url(https://images.unsplash.com/photo-1635438909544-3f1e87c206eb?q=80&w=4074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
         }
-        
-        img {
-          border-radius: 5px;
+  
+        &:nth-child(2) {
+          background-image: url(https://images.unsplash.com/photo-1702221422565-60f734cd90b1?q=80&w=4000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+        }
+  
+        &:nth-child(3) {
+          background-image: url(https://images.unsplash.com/photo-1683009427619-a1a11b799e05?q=80&w=4170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
         }
       }
     }
-  }
   
-  .relativeBox{
-    position: relative;
-    background-color: #ccc;
-    width: 100px;
-    height: 100px;
-  }
-  
-  .text__flex {
-    display: flex;  
-    padding-top: 3%;
-    
-    .left {
-      width: 10%;
+    .relativeBox {
       position: relative;
+      background-color: #ccc;
+      width: 100px;
+      height: 100px;
     }
-    
-    .right {
-      width: 90%;
-    }
-  }
   
-  .text-title {
-    p {
-      padding: 0% 5% 0 10%;
-      font-family: "GmarketSans";
-      font-weight: 900;
-      font-size: 4vw;
-      line-height: 1.2;
-      text-align: right;
-    }
-    
-    .svg {
-      svg {
-        animation: arrowAnimation 1.4s infinite;
-        width: 4.5vw;
-        height: 4.5vw;
-      }
-    }
-    
-    .desc2 {
-      a,
-      & {
-        font-family: "IropkeBatang";
-        line-height: 1.6;
-        font-size: 1.13rem;
-        color: #202020;
-        font-weight: normal;
-      }
-      
-      a {
+    .text__flex {
+      display: flex;
+      padding-top: 3%;
+  
+      .left {
+        width: 10%;
         position: relative;
-        pointer-events: auto;
-        letter-spacing: 1px;
-        font-family: "Roboto Condensed";
-        font-weight: 400;
-        font-size: 0.9rem;
-        display: inline-block;
-        width: 18rem;
-        text-align: left;
-        color: var(--desc-color);
-        
+      }
+  
+      .right {
+        width: 90%;
+      }
+    }
+  
+    .text-title {
+      p {
+        padding: 0% 5% 0 10%;
+        font-family: "GmarketSans";
+        font-weight: 900;
+        font-size: 4vw;
+        line-height: 1.2;
+        text-align: right;
+      }
+  
+      #desc1-1 {
+        padding-top: 0;
+      }
+  
+      .svg {
         svg {
-          position: absolute;
-          right: 0%;
-          top: 30%;
-          fill: var(--desc-color);
-          
-          path {
-            fill: var(--desc-color);
-          }
+          animation: arrowAnimation 1.4s infinite;
+          width: 4.5vw;
+          height: 4.5vw;
         }
-        
-        &:hover {
-          color: black;
-          
-          svg {
-            path {
-              fill: black
+      }
+  
+      .right {
+        .desc2, a {
+          font-family: "IropkeBatang";
+          line-height: 1.6;
+          font-size: 1.13rem;
+          color: #202020;
+          font-weight: normal;
+  
+          i {
+            font-style: normal;
+            text-decoration: underline;
+            text-underline-position: under;
+            display: block;
+            margin-bottom: 20px;
+          }
+  
+          a {
+            position: relative;
+            pointer-events: auto;
+            letter-spacing: 1px;
+            font-family: "Roboto Condensed";
+            font-weight: 400;
+            font-size: 0.9rem;
+            display: inline-block;
+            width: 18rem;
+            text-align: left;
+            color: var(--desc-color);
+  
+            svg {
+              position: absolute;
+              right: 0%;
+              top: 30%;
+              fill: var(--desc-color);
+  
+              path {
+                fill: var(--desc-color);
+              }
+            }
+  
+            &:hover {
+              svg path {
+                color: black;
+                fill: black;
+              }
+            }
+  
+            > div {
+              position: absolute;
+              right: 0%;
+              top: 30%;
+              width: 20px;
+              height: 2px;
+              background-color: #000;
+            }
+  
+            &:before, &:after {
+              content: "";
+              position: absolute;
+              background-color: #000;
+              height: 1px;
+              width: 100%;
+              left: 0;
+              right: 0;
+              top: 103%;
+              transform: scaleX(1);
+              transform-origin: left;
+              transition: transform 0.55s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+            }
+  
+            &:hover::before {
+              transform: scaleX(0);
+              transform-origin: right;
+              transition-delay: 0s;
+            }
+  
+            &:hover::after {
+              transform: scaleX(0);
+              transform-origin: right;
+              transition-delay: 0.1s;
             }
           }
-          
-          &::before,
-          &::after {
-            transform: scaleX(0); 
-            transform-origin: right; 
-            transition-delay: 0.1s; 
-          }
-          
-          &::before {
-            transition-delay: 0s;
-          }
         }
-        
-        &::before,
-        &::after {
-          content: "";
-          position: absolute;
-          background-color: #000;
-          height: 1px;
-          width: 100%;
-          left: 0;
-          right: 0;
-          top: 103%;
-          transform: scaleX(1); 
-          transform-origin: left; 
-          transition: transform 0.55s cubic-bezier(0.785, 0.135, 0.15, 0.86); 
+  
+        .first {
+          padding-top: 3%;
         }
-      }
-      
-      i {
-        font-style: normal;
-        text-decoration: underline;
-        text-underline-position: under;
-        display: block;
-        margin-bottom: 20px;
       }
     }
-    
-    .right {
-      .first {
-        padding-top: 3%;
+  
+    .text-center {
+    }
+  
+    @media (max-width: 1100px) {
+      .text-title {
+        .right {
+          .first {
+            padding-top: 7% !important;
+          }
+  
+          .last {
+            margin-top: 30px !important;
+          }
+  
+          .desc2 {
+            padding-left: 3%;
+          }
+        }
+      }
+    }
+  
+    @media (max-width: 850px) {
+      .loop__slide__container {
+        padding-top: 0;
+      }
+  
+      .text-title {
+        .left {
+          display: none;
+        }
+  
+        .right {
+          width: 100%;
+  
+          .HIDDEN {
+          }
+  
+          .HIDDEN p {
+            font-size: 6.5vw;
+            padding-right: 5% !important;
+          }
+  
+          .first {
+            padding-top: 200px !important;
+            margin-bottom: 0;
+          }
+  
+          p {
+            text-align: start;
+            padding-left: 5% !important;
+            padding-right: 10% !important;
+          }
+  
+          .desc2 {
+            font-size: 1rem;
+          }
+  
+          .last {
+            margin-top: 15px !important;
+          }
+  
+          .desc2 a {
+            font-size: 0.85rem;
+          }
+        }
+      }
+    }
+  
+    @media (max-width: 500px) {
+      padding-bottom: 50px;
+  
+      .text-title {
+        .right {
+          .first {
+            padding-top: 100px !important;
+          }
+  
+          .desc2 a {
+            width: 15rem;
+  
+            svg {
+              width: 3vw;
+              height: 3vw;
+              top: 10%;
+            }
+          }
+        }
       }
     }
   }

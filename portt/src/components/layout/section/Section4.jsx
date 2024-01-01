@@ -1,72 +1,123 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import section4 from '../../../data/sectionData/section4';
+import { Link } from 'react-router-dom';
+import { animate1 } from "../../../assets/js/gsap/section1.js";
 const Section4 = () => {
-
-    const toggleDesc = (e) => {
-
-    }
+   
+    
+        const sec4Ref = useRef(null)
+    
+        useEffect(() => {
+            if(sec4Ref.current) {
+                animate1(sec4Ref.current)
+            }
+        }, [])
 
 return (    
 
 <div id="section4">
-<div className="project__wrap">
-
-    {section4.map((sec, key) => (
-    <div className="project work p1" key={key}>
-        <div className="project__flex">
-            <div className="left">
-                <div className="NUMHIDDEN">
-                    <div className="reveal1 BTT3 num">{key + 1}</div>
-                </div>
+        <div className="project__wrap p1" ref={sec4Ref}>
+            <div className="HIDDEN numWrap">
+                <p className="num reveal1 BTT3">1.</p>
             </div>
-            <div className="middle">(Digital Stage)</div>
-            <div className="right">
-                <div className="HIDDEN title">
-                    <h4 className="reveal1 BTT2">{sec.tit1}</h4>
+            <div className="HIDDEN subTitle">
+                <p className="reveal1 BTT3">(유튜브 사이트 제작)</p>
+            </div>
+            <div className="titWrap">
+                <div className="HIDDEN">
+                    <div className="h4 reveal1 BTT3">Digital Stage</div>
                 </div>
-                <div className="HIDDEN title">
-                    <h4 className="reveal1 BTT2">{sec.tit2}</h4>
+                <div className="HIDDEN">
+                    <div className="h4 reveal1 BTT3">Recreating the React</div>
                 </div>
-                <div className="item__wrap">
-                    <div className="HIDDEN img">
-                        <img src={sec.img} alt="proj01" />
+                <div className="HIDDEN">
+                    <div className="h4 reveal1 BTT3">YouTube Clone.</div>
+                </div>
+                <div className="imgWrap">
+                    <div className="img">
                     </div>
-                    <div className="item__desc mt40 pb100">
-                        <div className="desc__wrap" onClick={(e) => toggleDesc(e)}>
-                            <div className="flex__desc pl10">
-                                <span>Discovery</span>
-                                <svg className="icon__plus" width="15" height="16" viewBox="0 0 15 16" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 8.25H15" stroke="black" strokeWidth="2" />
-                                    <path d="M8 0V16" stroke="black" strokeWidth="2" />
-                                </svg>
-                            </div>
-                            <div className="hidden__desc pl10">
-                                <span>asd</span>
-                            </div>
-                        </div>
-                        <div className="desc__wrap" onClick={(e) => toggleDesc(e)}>
-                            <div className="flex__desc pl10">
-                                <span>Discovery</span>
-                                <svg className="icon__plus" width="15" height="16" viewBox="0 0 15 16" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 8.25H15" stroke="black" strokeWidth="2" />
-                                    <path d="M8 0V16" stroke="black" strokeWidth="2" />
-                                </svg>
-                            </div>
-                            <div className="hidden__desc pl10">
-                                <span>asd</span>
-                            </div>
+                    <div className="desc">
+                        <p className="underLine">유튜브 사이트 제작</p>
+                        <p className="mainDesc">유튜브 api를 통해 패션 유튜브 클론 사이트를 제작했습니다.
+                            리액트라는 새로운 환경에서 첫 프로그램을 개발하면서, 그 어려움이 동시에 흥미로움으로 변모하는 과정을 경험했습니다.
+                        </p>
+                        <div className="desc__flex__box">
+                            <p className="bold"> <Link to={"https://github.com/jade1087z/reactyoutube.git"} target="_blank" className="relative" >GitHub Link </Link> </p>
+                            <p className="bold"><Link to={"https://fessionyoutube.netlify.app/"} target="_blank">사이트 바로가기</Link></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div className="project__wrap p2">
+            <div className="HIDDEN numWrap">
+                <p className="num reveal1 BTT3">2.</p>
+            </div>
+            <div className="HIDDEN subTitle">
+                <p className="reveal1 BTT3">(유튜브 사이트 제작)</p>
+            </div>
+            <div className="titWrap">
+                <div className="HIDDEN">
+                    <div className="h4 reveal1 BTT3">Digital Stage</div>
+                </div>
+                <div className="HIDDEN">
+                    <div className="h4 reveal1 BTT3">Recreating the React</div>
+                </div>
+                <div className="HIDDEN">
+                    <div className="h4 reveal1 BTT3">YouTube Clone.</div>
+                </div>
+                <div className="imgWrap">
+                    <div className="img">
+                    </div>
+                    <div className="desc">
+                        <p className="underLine">유튜브 사이트 제작</p>
+                        <p className="mainDesc">유튜브 api를 통해 패션 유튜브 클론 사이트를 제작했습니다.
+                            리액트라는 새로운 환경에서 첫 프로그램을 개발하면서, 그 어려움이 동시에 흥미로움으로 변모하는 과정을 경험했습니다.
+                        </p>
+                        <div className="desc__flex__box">
+                            <p className="bold"> <a className="relative" href="https://github.com/jade1087z/reactyoutube.git"                                target="_blank">GitHub Link </a> </p>
+                            <p className="bold"><a href="https://fessionyoutube.netlify.app/" target="_blank">사이트 바로가기</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div className="project__wrap p3">
+            <div className="HIDDEN numWrap">
+                <p className="num reveal1 BTT3">3.</p>
+            </div>
+            <div className="HIDDEN subTitle">
+                <p className="reveal1 BTT3">(유튜브 사이트 제작)</p>
+            </div>
+            <div className="titWrap">
+                <div className="HIDDEN">
+                    <div className="h4 reveal1 BTT3">Digital Stage</div>
+                </div>
+                <div className="HIDDEN">
+                    <div className="h4 reveal1 BTT3">Recreating the React</div>
+                </div>
+                <div className="HIDDEN">
+                    <div className="h4 reveal1 BTT3">YouTube Clone.</div>
+                </div>
+                <div className="imgWrap">
+                    <div className="img">
+                    </div>
+                    <div className="desc">
+                        <p className="underLine">유튜브 사이트 제작</p>
+                        <p className="mainDesc">유튜브 api를 통해 패션 유튜브 클론 사이트를 제작했습니다.
+                            리액트라는 새로운 환경에서 첫 프로그램을 개발하면서, 그 어려움이 동시에 흥미로움으로 변모하는 과정을 경험했습니다.
+                        </p>
+                        <div className="desc__flex__box">
+                            <p className="bold"> <a className="relative" href="https://github.com/jade1087z/reactyoutube.git"                                target="_blank">GitHub Link </a> </p>
+                            <p className="bold"><a href="https://fessionyoutube.netlify.app/" target="_blank">사이트 바로가기</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
     </div>
-    ))}
-    
-</div>
-</div>
   )
 }
 

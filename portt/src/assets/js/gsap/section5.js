@@ -1,14 +1,12 @@
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+export const animate5 = (element) => {
 const timelineBTT11_12 = gsap.timeline({ paused: true, onComplete: () => timelineBTT10.play() });
 const timelineBTT10 = gsap.timeline({ paused: true });
 
 const tl5 = gsap.timeline({ paused: true });
-const targets5 = gsap.utils.toArray(".split3");
-    targets5.forEach((target) => {
-    let SplitClient = new SplitType(target, { type: "lines, words, chars" });
-    let lines = SplitClient.lines;
-    let words = SplitClient.words;
-    let chars = SplitClient.chars;
-});
+
 gsap.set(".split4-1", { opacity: 0, y: 10, x: 0 });
 gsap.set(".split4-2", { opacity: 0, y: 10, x: 0 });
 gsap.set(".split4-3", { opacity: 0, y: 10, x: 0 });
@@ -19,6 +17,15 @@ gsap.set(".split4-7", { opacity: 0, y: 10, x: 0 });
 gsap.set(".split4-8", { opacity: 0, y: 10, x: 0 });
 gsap.set(".split4-9", { opacity: 0, y: 10, x: 0 });
 gsap.set(".split4-10", { opacity: 0, y: 10, x: 0 });
+gsap.set(".split4-11", { opacity: 0, y: 10, x: 0 });
+gsap.set(".split4-12", { opacity: 0, y: 10, x: 0 });
+gsap.set(".split4-13", { opacity: 0, y: 10, x: 0 });
+gsap.set(".split4-14", { opacity: 0, y: 10, x: 0 });
+gsap.set(".split4-15", { opacity: 0, y: 10, x: 0 });
+gsap.set(".split4-16", { opacity: 0, y: 10, x: 0 });
+gsap.set(".split4-17", { opacity: 0, y: 10, x: 0 });
+gsap.set(".split4-18", { opacity: 0, y: 10, x: 0 });
+gsap.set(".split4-19", { opacity: 0, y: 10, x: 0 });
 
     const hide4 = (item) => {
         gsap.set(item, { autoAlpha: 0 });
@@ -89,19 +96,30 @@ gsap.utils.toArray(".reveal5").forEach((item) => {
         onEnter: () => {
             if (!timelineBTT11_12.isActive()) {
                 timelineBTT11_12.play().then(()=>{
-                    tl5.to(".split4-1", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.8, ease: "power2.inOut",},"-=0.5");
-                    tl5.to(".split4-2",{opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.8, ease: "power2.inOut",},"-=0.5");
-                    tl5.to(".split4-3",{opacity: 1, y: 0, x: 0, stagger: 0, duration: 0.8, ease: "power2.inOut",},"-=0.5");    
-                    tl5.to(".split4-4",{opacity: 1, y: 0, x: 0, stagger: 0, duration: 0.8, ease: "power2.inOut",},"-=0.5");    
-                    tl5.to(".split4-5", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.8, ease: "power2.inOut",},"-=0.5");
-                    tl5.to(".split4-6", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.8, ease: "power2.inOut",},"-=0.5");
-                    tl5.to(".split4-7", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.8, ease: "power2.inOut",},"-=0.5");
-                    tl5.to(".split4-8", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.8, ease: "power2.inOut",},"-=0.5");
-                    tl5.to(".split4-9", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.8, ease: "power2.inOut",},"-=0.5");
-                    tl5.to(".split4-10", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.8, ease: "power2.inOut",},"-=0.5");
+                    tl5.to(".split4-1", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.7, ease: "power2.inOut",},"-=0.5");
+                    tl5.to(".split4-2", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.7, ease: "power2.inOut",},"-=0.5");
+                    tl5.to(".split4-3", {opacity: 1, y: 0, x: 0, stagger: 0, duration: 0.7, ease: "power2.inOut",},"-=0.5");    
+                    tl5.to(".split4-4", {opacity: 1, y: 0, x: 0, stagger: 0, duration: 0.7, ease: "power2.inOut",},"-=0.5");    
+                    tl5.to(".split4-5", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.7, ease: "power2.inOut",},"-=0.5");
+                    tl5.to(".split4-6", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.7, ease: "power2.inOut",},"-=0.5");
+                    tl5.to(".split4-7", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.7, ease: "power2.inOut",},"-=0.5");
+                    tl5.to(".split4-8", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.7, ease: "power2.inOut",},"-=0.5");
+                    tl5.to(".split4-9", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.7, ease: "power2.inOut",},"-=0.5");
+                    tl5.to(".split4-10", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.7, ease: "power2.inOut",},"-=0.5");
+                    tl5.to(".split4-11", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.7, ease: "power2.inOut",},"-=0.5");
+                    tl5.to(".split4-12", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.7, ease: "power2.inOut",},"-=0.5");
+                    tl5.to(".split4-13", {opacity: 1, y: 0, x: 0, stagger: 0, duration: 0.7, ease: "power2.inOut",},"-=0.5");    
+                    tl5.to(".split4-14", {opacity: 1, y: 0, x: 0, stagger: 0, duration: 0.7, ease: "power2.inOut",},"-=0.5");    
+                    tl5.to(".split4-15", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.7, ease: "power2.inOut",},"-=0.5");
+                    tl5.to(".split4-16", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.7, ease: "power2.inOut",},"-=0.5");
+                    tl5.to(".split4-17", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.7, ease: "power2.inOut",},"-=0.5");
+                    tl5.to(".split4-18", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.7, ease: "power2.inOut",},"-=0.5");
+                    tl5.to(".split4-19", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 0.7, ease: "power2.inOut",},"-=0.5");
                     tl5.play();
                 })
             }
         },
     });
 });
+} 
+export default animate5;

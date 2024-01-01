@@ -1,5 +1,3 @@
-import React, { useState } from 'react'
-import Header from './layout/Header';
 import Section1 from './layout/section/Section1';
 import Section2 from './layout/section/Section2';
 import Section3 from './layout/section/Section3';
@@ -14,7 +12,6 @@ const Home = () => {
 
   return (
     <div>
-    <Header />
     <Section1/>
     <Section2/>
     <Section3/>
