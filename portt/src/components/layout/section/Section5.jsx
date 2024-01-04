@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react'
-import profile from '../../../assets/img/Group 47.png';
 import section4 from '../../../data/sectionData/section4';
 import { Link } from 'react-router-dom';
 import { animate5 } from "../../../assets/js/gsap/section5.js";
@@ -34,7 +33,7 @@ const Section5 = () => {
     <div className="profile__flex">
         <div className="sticky__box">
             <div className="left">
-                <img src="assets/img/Group 47.png" alt="" />
+                
             </div>
         </div>
         <div className="midle"></div>

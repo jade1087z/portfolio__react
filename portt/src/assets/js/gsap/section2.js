@@ -9,7 +9,7 @@ export const animate2 = (element) => {
     const tl = gsap.timeline({ paused: true });
     const targets2 = gsap.utils.toArray(".split2");
     
-    gsap.set(".text__flex .right .first",{ opacity: 0, y: 100, x: 0 });
+    gsap.set(".text__flex .right .first",{ opacity: 0, y: 10, x: 0 });
     gsap.set(".text__flex .right .sp2", { opacity: 0, y: 10, x: 0 });
     gsap.set(".text__flex .right .sp3", { opacity: 0, y: 10, x: 0 });
     gsap.set(".text__flex .right .sp4", { opacity: 0, y: 10, x: 0 });
@@ -76,7 +76,7 @@ export const animate2 = (element) => {
             markers: true,
             onEnter: () => {
                 animation.play().then(() => {
-                    tl.to(".text__flex .right .first", {opacity: 1 ,y: -20, x: 0, stagger: 0, duration: 1, ease: "power2.inOut",},"-=0.5");
+                    tl.to(".text__flex .right .first", {opacity: 1 ,y: 0, x: 0, stagger: 0, duration: 1, ease: "power2.inOut",},"-=0.5");
                     tl.to(".text__flex .right .sp2",{opacity: 1, y: 0, x: 0, stagger: 0, duration: 1, ease: "power2.inOut",},"-=0.5");    
                     tl.to(".text__flex .right .sp3",{opacity: 1, y: 0, x: 0, stagger: 0, duration: 1, ease: "power2.inOut",},"-=0.5");    
                     tl.to(".text__flex .right .sp4",{opacity: 1, y: 0, x: 0, stagger: 0, duration: 1, ease: "power2.inOut",},"-=0.5");

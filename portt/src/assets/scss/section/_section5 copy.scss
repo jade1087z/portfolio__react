@@ -40,29 +40,21 @@
 
     .profile__flex {
         display: flex;
-        padding: 100px 50px 0 50px;
+        padding: 100px 20px 0 20px;
 
         .sticky__box {
-            width: 45%;
-            background-color: #000;
         }
 
         .left {
             position: sticky;
             position: -webkit-sticky;
-            left: 0px;
+            left: 50px;
             top: 100px;
-            width: 40vw;
-            height: 48vw;
-            background-image: url(../../img/me.jpg);
-            background-size: cover;
-            background-position: center;
 
-            // img {
-            //     width: 40vw;
-            //     height: 48vw;
-            // }
-            // 화면 비율 맞추기 
+            img {
+                width: 40vw;
+                height: 48vw;
+            }
         }
 
         .midle {
