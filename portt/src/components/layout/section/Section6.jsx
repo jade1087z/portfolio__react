@@ -32,12 +32,14 @@ const Section6 = () => {
         const next = () => {
             if (nextButtonRef.current) {
                 updateTranslateX(-window.innerWidth * 0.5);
+                setNum((prev) => prev + 1);
             }
         };
 
         const prev = () => {
             if (prevButtonRef.current) {
                 updateTranslateX(window.innerWidth * 0.5);
+                setNum((prev) => prev - 1);
             }
         };
         nextButtonRef.current.addEventListener("click", next);
@@ -57,9 +59,10 @@ const Section6 = () => {
 
     const [desc, setDesc] = useState();
     const [postList, setPostList] = useState([]);
+    const [num, setNum] = useState(1);
+    const [totalNum, setTotalNum] = useState();
 
     // 요구 사항
-    // 1. 댓글 작성 완료시 동적으로 댓글이 생겨야 함 --> 새로고침 되지 않고 --> 최신이 먼저 배치되게끔
     // 2. 새로고침하더라도 글목록은 최신순으로
     // --> 글 목록이 늘어나면 해당 값만큼 maxWidth값 키워주기 + 밑에 목록 숫자 업데이트 해주기
 
@@ -69,13 +72,14 @@ const Section6 = () => {
             .then((res) => {
                 if (res.data.success) {
                     setPostList(res.data.postList);
+                    setTotalNum(res.data.postList.length);
                     console.log("axios list");
                 }
             })
             .catch((err) => {
                 console.log(err);
             });
-    }, []);
+    }, [postList]);
 
     const addPost = async (e) => {
         e.preventDefault();
@@ -134,7 +138,11 @@ const Section6 = () => {
             </div>
 
             <div className="skill__inner">
-                <div className="skill__flex__box" ref={scrollContainer}>
+                <div
+                    className="skill__flex__box"
+                    ref={scrollContainer}
+                    style={{ width: `${(postList.length + 1) * 100}%` }}
+                >
                     <form className="my__skill form__box">
                         <textarea
                             className="desc"
@@ -163,8 +171,10 @@ const Section6 = () => {
                 </div>
                 <div className="skill__scrollBar">
                     <div className="scroll__num whiteSpaceNo">
-                        <span className="now">01 - </span>
-                        <span className="all">05</span>
+                        <span className="now">
+                            {num < 10 ? `0${num}` : num} -{" "}
+                        </span>
+                        <span className="all">{totalNum}</span>
                     </div>
                     <div className="bar"></div>
                     <div className="rem">
