@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import { animate2 } from "../../../assets/js/gsap/section2.js";
-import ReactModal from "react-modal";
+import axios from "axios";
 
 const Section6 = () => {
     const sec6Ref = useRef(null);
     const scrollContainer = useRef(null);
     const nextButtonRef = useRef(null);
     const prevButtonRef = useRef(null);
+
     const updateTranslateX = (increment) => {
         console.log("Before:", scrollContainer.current.style.transform);
         let currentTranslateX = parseFloat(
@@ -44,36 +44,65 @@ const Section6 = () => {
         prevButtonRef.current.addEventListener("click", prev);
 
         return () => {
-            nextButtonRef.current.removeEventListener("click", next);
-            prevButtonRef.current.removeEventListener("click", prev);
+            if (nextButtonRef.current) {
+                nextButtonRef.current.removeEventListener("click", next);
+            }
+            if (prevButtonRef.current) {
+                prevButtonRef.current.removeEventListener("click", prev);
+            }
         };
     }, []);
+
     // 박스 움직이기 및 애니메이션
 
-    const [addBox, setAddBox] = useState([]);
-    const [title, setTitle] = useState();
     const [desc, setDesc] = useState();
-    const [modalIsOpen, setIsOpen] = useState(false);
+    const [postList, setPostList] = useState([]);
 
-    const addPost = (e) => {
-        setIsOpen(true)
-        console.log("modal");
+    // 요구 사항
+    // 1. 댓글 작성 완료시 동적으로 댓글이 생겨야 함 --> 새로고침 되지 않고 --> 최신이 먼저 배치되게끔
+    // 2. 새로고침하더라도 글목록은 최신순으로
+    // --> 글 목록이 늘어나면 해당 값만큼 maxWidth값 키워주기 + 밑에 목록 숫자 업데이트 해주기
+
+    useEffect(() => {
+        axios
+            .get("/api/post/list")
+            .then((res) => {
+                if (res.data.success) {
+                    setPostList(res.data.postList);
+                    console.log("axios list");
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, []);
+
+    const addPost = async (e) => {
+        e.preventDefault();
+        if (desc) {
+            let body = {
+                content: desc,
+            };
+            await axios
+                .post("/api/post/write", body)
+                .then((res) => {
+                    if (res.data.success) {
+                        setPostList((prevPosts) => [
+                            res.data.newPost,
+                            ...prevPosts,
+                        ]);
+                        alert("댓글 작성이 완료되었습니다.");
+                    } else {
+                        console.log("axios실패");
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        } else {
+            alert("내용을 입력해주세여");
+        }
     };
-
-    // const post = (e) => {
-    //     e.preventDefault();
-    //     if (title !== "" && desc !== "") {
-    //         setAddBox([...addBox, { title, desc }]); // 배열에 새로운 객체를 추가
-    //     } else {
-    //         setIsOpen(true); // alert 대신 모달을 활성화
-    //     }
-    // };
-
-    const closeModal = () => {
-        setIsOpen(false);
-        console.log("close")
-    };
-    // 모달창 열리는거 성공시키기
 
     return (
         <div id="section6">
@@ -106,17 +135,7 @@ const Section6 = () => {
 
             <div className="skill__inner">
                 <div className="skill__flex__box" ref={scrollContainer}>
-                    <form
-                        className="my__skill form__box"
-                        onClick={(e) => addPost(e)}
-                    >
-                        <input
-                            type="text"
-                            className="title"
-                            placeholder="title"
-                            value={title} // state와 연결
-                            onChange={(e) => setTitle(e.target.value)}
-                        />
+                    <form className="my__skill form__box">
                         <textarea
                             className="desc"
                             placeholder="desc"
@@ -125,42 +144,22 @@ const Section6 = () => {
                             onChange={(e) => setDesc(e.target.value)}
                         ></textarea>
                         <div>
-                            <button className="post" >
+                            <button
+                                className="post"
+                                onClick={(e) => addPost(e)}
+                            >
                                 POST
                             </button>
-                            <ReactModal
-                                isOpen={modalIsOpen}
-                                onRequestClose={closeModal}
-                                contentLabel="Example Modal"
-                                ariaHideApp={false}
-                            >
-                                <h2>아쉽</h2>
-                                <button onClick={closeModal}>close</button>
-                                <div>내용을 작성해주세요</div>
-                            </ReactModal>{" "}
                         </div>
                     </form>
-                    <div className="my__skill">
-                        <p className="sub__tit">1. google 960 639</p>
-                        <p className="sub__desc">
-                            "dumy text dumy textdumy textdumy textdumy text"
-                            "dumy text dumy textdumy textdumy textdumy text"
-                            "dumy text dumy textdumy textdumy textdumy text"dumy
-                            text dumy textdumy textdumy textdumy text"
-                        </p>
-                    </div>
-                    <div className="my__skill">
-                        <p className="sub__tit">2. google 960 639</p>
-                        <p className="sub__desc">
-                            "dumy text dumy textdumy textdumy textdumy text"
-                        </p>
-                    </div>
-                    <div className="my__skill">
-                        <p className="sub__tit">3. google 960 639</p>
-                        <p className="sub__desc">
-                            "dumy text dumy textdumy textdumy textdumy text"
-                        </p>
-                    </div>
+                    {postList &&
+                        postList.map((post, key) => (
+                            <div className="skillBox" key={key}>
+                                <div className="my__skill">
+                                    <p className="sub__desc">{post.content}</p>
+                                </div>
+                            </div>
+                        ))}
                 </div>
                 <div className="skill__scrollBar">
                     <div className="scroll__num whiteSpaceNo">

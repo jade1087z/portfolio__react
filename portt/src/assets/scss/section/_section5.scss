@@ -35,9 +35,6 @@
         }
     }
 
-    .sticky__box {
-    }
-
     .profile__flex {
         display: flex;
         padding: 100px 50px 0 50px;
@@ -45,43 +42,46 @@
         .sticky__box {
             width: 45%;
             background-color: #000;
-        }
 
-        .left {
-            position: sticky;
-            position: -webkit-sticky;
-            left: 0px;
-            top: 100px;
-            width: 40vw;
-            height: 48vw;
-            background-image: url(../../img/me.jpg);
-            background-size: cover;
-            background-position: center;
+            .left {
+                position: sticky;
+                position: -webkit-sticky;
+                left: 0px;
+                top: 100px;
+                width: 40vw;
+                width: 100%;
+                height: 48vw;
+                background-image: url(../../img/me.jpg);
+                background-size: cover;
+                background-position: center;
 
-            // img {
-            //     width: 40vw;
-            //     height: 48vw;
-            // }
-            // 화면 비율 맞추기 
+                // img {
+                //     width: 40vw;
+                //     height: 48vw;
+                // }
+                // 화면 비율 맞추기
+            }
         }
 
         .midle {
-            width: 30%;
+            width: 5%;
         }
 
         .right {
+            width: 50%;
             & .right__wrap {
                 display: flex;
                 padding: 3% 0;
 
                 .num__wrap {
-                    width: 40%;
+                    width: 10%;
 
                     .num {
-                        font-size: 1vw;
+                        font-size: 1.25vw;
                         font-family: var(--font-Roboto);
                         font-weight: bold;
-                        line-height: 1.3;
+                        line-height: 1.4;
+                        font-family: "Josefin Slab";
                     }
 
                     .profile__text {
@@ -90,8 +90,10 @@
 
                 .profile__text {
                     p {
-                        font-size: 1vw;
-                        font-family: var(--font-iro);
+                        font-size: 1.25vw;
+                        // font-family: var(--font-iro);
+                        font-weight: bold;
+                        font-family: "Josefin Slab";
                     }
 
                     .profile__subTit {
@@ -99,18 +101,17 @@
                     }
 
                     .profile__subDe {
-                        width: 80%;
+                        width: 95%;
                         color: var(--desc-color);
                         font-family: var(--font-iro);
                         line-height: 1.9;
-                        font-size: 0.9vw;
+                        font-size: 0.84vw;
                     }
                 }
-
             }
             .more {
                 padding-left: 130px !important;
-                padding-left: 14% !important;
+                padding-left: 5% !important;
 
                 a {
                     display: flex;
@@ -153,7 +154,8 @@
                         top: 103%;
                         transform: scaleX(1);
                         transform-origin: left;
-                        transition: transform 0.55s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+                        transition: transform 0.55s
+                            cubic-bezier(0.785, 0.135, 0.15, 0.86);
                     }
 
                     &:hover {
