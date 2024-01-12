@@ -49,28 +49,19 @@
                 align-content: flex-end;
                 cursor: pointer;
                 align-items: flex-end;
-                input {
-                    width: 100%;
-                }
-                .title,
+
                 .desc {
                     width: 100%;
-                    padding: 3% 6% 1% 6%;
+                    padding: 8% 6% 1% 6%;
                     border: none;
                     outline: none;
-                    cursor: pointer;
-                }
-                .title {
-                    padding-top: 5%;
-                    font-size: 2.5vw;
-                    color: black;
-                }
-                .desc {
                     font-size: 1.8vw;
                     color: var(--desc-color);
                     height: 23vw;
                     resize: none;
+                    cursor: pointer;
                 }
+
                 div {
                     display: flex;
                     flex-direction: row;
@@ -97,14 +88,7 @@
                 border-radius: 5px;
 
                 p {
-                    padding: 3% 6% 1% 6%;
-                }
-
-                .sub__tit {
-                    font-size: 2.5vw;
-                }
-
-                .sub__desc {
+                    padding: 8% 6% 1% 6%;
                     font-size: 1.8vw;
                 }
             }

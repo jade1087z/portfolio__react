@@ -7,6 +7,11 @@ const Section6 = () => {
     const scrollContainer = useRef(null);
     const nextButtonRef = useRef(null);
     const prevButtonRef = useRef(null);
+    const [desc, setDesc] = useState();
+    const [postList, setPostList] = useState([]);
+    const [num, setNum] = useState(1);
+    const [totalNum, setTotalNum] = useState();
+    console.log(num);
 
     const updateTranslateX = (increment) => {
         console.log("Before:", scrollContainer.current.style.transform);
@@ -30,14 +35,14 @@ const Section6 = () => {
             animate2(sec6Ref.current);
         }
         const next = () => {
-            if (nextButtonRef.current) {
+            if (nextButtonRef.current && num < totalNum) {
                 updateTranslateX(-window.innerWidth * 0.5);
-                setNum((prev) => prev + 1);
+                setNum((prevNum) => prevNum + 1);
             }
         };
 
         const prev = () => {
-            if (prevButtonRef.current) {
+            if (prevButtonRef.current && num > 1) {
                 updateTranslateX(window.innerWidth * 0.5);
                 setNum((prev) => prev - 1);
             }
@@ -53,14 +58,9 @@ const Section6 = () => {
                 prevButtonRef.current.removeEventListener("click", prev);
             }
         };
-    }, []);
+    }, [num, totalNum]);
 
     // 박스 움직이기 및 애니메이션
-
-    const [desc, setDesc] = useState();
-    const [postList, setPostList] = useState([]);
-    const [num, setNum] = useState(1);
-    const [totalNum, setTotalNum] = useState();
 
     // 요구 사항
     // 2. 새로고침하더라도 글목록은 최신순으로
@@ -79,7 +79,7 @@ const Section6 = () => {
             .catch((err) => {
                 console.log(err);
             });
-    }, [postList]);
+    }, []);
 
     const addPost = async (e) => {
         e.preventDefault();
